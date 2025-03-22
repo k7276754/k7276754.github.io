@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Book</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="recipe-container">
+        <h2>🍽️ My Recipe Book</h2>
+        <div class="recipe-grid">
+            <div class="recipe-card" onclick="showRecipe('pasta')">
+                <img src="pasta.jpg" alt="Pasta">
+                <h3>Delicious Pasta</h3>
+            </div>
+            <div class="recipe-card" onclick="showRecipe('burger')">
+                <img src="burger.jpg" alt="Burger">
+                <h3>Juicy Burger</h3>
+            </div>
+            <div class="recipe-card" onclick="showRecipe('pizza')">
+                <img src="pizza.jpg" alt="Pizza">
+                <h3>Cheesy Pizza</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recipe Modal -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRecipe()">&times;</span>
+            <h3 id="recipeTitle"></h3>
+            <p id="recipeDetails"></p>
+        </div>
+    </div>
+
+    <script>
+        const recipes = {
+            pasta: "🍝 Ingredients: Pasta, tomatoes, garlic, olive oil, basil.\nSteps: 1. Boil pasta 2. Prepare sauce 3. Mix together 4. Serve with cheese.",
+            burger: "🍔 Ingredients: Bun, beef patty, cheese, lettuce, tomato, sauce.\nSteps: 1. Grill patty 2. Toast bun 3. Assemble ingredients 4. Enjoy!",
+            pizza: "🍕 Ingredients: Dough, tomato sauce, cheese, pepperoni.\nSteps: 1. Spread sauce on dough 2. Add cheese & toppings 3. Bake 4. Slice & eat."
+        };
+
+        function showRecipe(name) {
+            document.getElementById("recipeTitle").innerText = name.toUpperCase();
+            document.getElementById("recipeDetails").innerText = recipes[name];
+            document.getElementById("recipeModal").style.display = "block";
+        }
+
+        function closeRecipe() {
+            document.getElementById("recipeModal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
